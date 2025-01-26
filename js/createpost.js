@@ -73,18 +73,18 @@ document.querySelector('form').addEventListener('submit', async (e) => {
     author_id: Number(author_id),
     title,
     description,
-    ingredients, // Array of ingredients
+    ingredients,
     instructions,
     prep_time: Number(prep_time),
     cook_time: Number(cook_time),
     servings: Number(servings),
     category,
     cuisine,
-    images, // Array of image URLs
+    images,
   };
 
   try {
-    const res = await fetch('http://localhost:3004/post', {
+    const res = await fetch('http://localhost:3004/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

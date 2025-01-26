@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./js/script.js" type="module"></script>
+    <link href="./output.css" rel="stylesheet" />
   </head>
-  <body>
-    <div id="all-posts"></div>
+  <body class="bg-red-200 flex flex-col justify-center">
+      <h1 class="text-xl flex flex-row justify-center">Recipes</h1>
+      <button
+        class="flex flex-row justify-center bg-red-500 text-white font-roboto p-2 rounded-lg hover:bg-red-700 transition duration-200 cursor-pointer"
+        id="create-btn"
+      >
+        Create Recipe
+      </button>
+    </div>
+    <div
+      class="flex flex-col align-items justify-items-center justify-center"
+      id="all-recipes"
+    ></div>
   </body>
 </html>
