@@ -1,4 +1,5 @@
-const API_URL = 'https://api-development-assignement-julieoyen.onrender.com/';
+const API_URL =
+  'https://api-development-assignement-julieoyen.onrender.com/create';
 
 document.querySelector('#add-ingredient').addEventListener('click', () => {
   const container = document.querySelector('#ingredients-container');
