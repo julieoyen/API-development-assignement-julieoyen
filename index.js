@@ -20,7 +20,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/recipes', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const [recipeRows] = await connection.query(`
       SELECT 
