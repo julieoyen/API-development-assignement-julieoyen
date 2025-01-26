@@ -3,15 +3,12 @@ const API_URL = 'https://api-development-assignement-julieoyen.onrender.com/';
 async function fetchRecipes() {
   try {
     const response = await fetch(API_URL);
-
     if (!response.ok) {
       throw new Error(`An error occurred: ${response.statusText}`);
     }
 
     const recipes = await response.json();
-
     const allRecipesDiv = document.getElementById('all-recipes');
-
     allRecipesDiv.innerHTML = '';
 
     recipes.forEach((recipe) => {
@@ -52,14 +49,12 @@ async function fetchRecipes() {
     });
   } catch (error) {
     console.error('Error fetching recipes:', error);
-
     const allRecipesDiv = document.getElementById('all-recipes');
     allRecipesDiv.innerHTML = `<p style="color: red;">Failed to fetch recipes. Please try again later.</p>`;
   }
 }
-
 fetchRecipes();
 
 document.querySelector('#create-btn').addEventListener('click', () => {
-  window.location.href = './createpost.html';
+  window.location.href = './create';
 });

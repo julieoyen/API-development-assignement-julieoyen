@@ -1,3 +1,5 @@
+const API_URL = 'https://api-development-assignement-julieoyen.onrender.com/';
+
 document.querySelector('#add-ingredient').addEventListener('click', () => {
   const container = document.querySelector('#ingredients-container');
   const inputCount = container.querySelectorAll('.ingredient-item').length + 1;
@@ -84,7 +86,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
   };
 
   try {
-    const res = await fetch('http://localhost:3004/create', {
+    const res = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -100,7 +102,6 @@ document.querySelector('form').addEventListener('submit', async (e) => {
     }
 
     const data = await res.json();
-    console.log('Response:', data);
     alert('Form submitted successfully!');
     location.reload();
   } catch (error) {
