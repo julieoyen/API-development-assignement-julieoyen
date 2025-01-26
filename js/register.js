@@ -1,3 +1,6 @@
+const API_URL =
+  'https://api-development-assignement-julieoyen.onrender.com/register';
+
 document
   .querySelector('#register-form')
   .addEventListener('submit', async (e) => {
@@ -6,7 +9,7 @@ document
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
     try {
-      const res = await fetch('http://localhost:3004/register', {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

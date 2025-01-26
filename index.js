@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import mysql from 'mysql2/promise';
-import jwt from 'jsonwebtoken';
 
 const connection = await mysql.createConnection({
   host: process.env.DB_HOST,
@@ -17,7 +16,11 @@ const SECRET = process.env.SECRET || 'its a secret';
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 app.use(express.json());
 
 app.get('/', async (req, res) => {
@@ -84,9 +87,8 @@ app.get('/', async (req, res) => {
 app.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
   const [result] = await connection.query(
-    `INSERT INTO post (title, content, user_id)
-    VALUES ('${name}', '${email}', '${password}')
- `
+    'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+    [name, email, password]
   );
   res.json(result);
 });
@@ -154,6 +156,4 @@ app.post('/create', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log('Server started', port);
-});
+app.listen(port, () => {});
