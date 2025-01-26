@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3004/recipes';
+const API_URL = 'https://api-development-assignement-julieoyen.onrender.com/';
 
 async function fetchRecipes() {
   try {
