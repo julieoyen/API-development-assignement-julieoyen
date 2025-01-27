@@ -12,13 +12,13 @@ const connection = await mysql.createConnection({
 
 const port = process.env.PORT || 3004;
 
-const SECRET = process.env.SECRET || 'its a secret';
-
 const app = express();
 
 app.use(
   cors({
     origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
   })
 );
 app.use(express.json());
@@ -79,7 +79,6 @@ app.get('/', async (req, res) => {
 
     res.status(200).json(recipes);
   } catch (error) {
-    console.error('Error fetching recipes:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -151,7 +150,6 @@ app.post('/create', async (req, res) => {
 
     res.status(201).json({ success: true, recipeId });
   } catch (error) {
-    console.error('Error inserting recipe:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
