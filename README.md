@@ -1,6 +1,7 @@
 ## API Development Assignment
 
-### This project is a demonstration of server-side development with Node.js, a SQL database (MySQL), and a basic frontend interface to interact with the API. The backend is hosted on Render, and the frontend is deployed on Netlify.
+### This project is a demonstration of server-side development with Node.js, a SQL database (MySQL), and a basic frontend interface to interact with the API. 
+
 
 ## Table of Contents:
 
