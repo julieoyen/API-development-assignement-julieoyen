@@ -11,8 +11,12 @@
   <body>
     <form
       id="register-form"
-      class="p-4 max-w-md mx-auto bg-gray-100 rounded shadow-md flex flex-col"
+      class="m-10 p-4 max-w-md mx-auto bg-gray-100 rounded shadow-md flex flex-col"
     >
+      <div class="flex justify-center">
+        <h1 class="flex text-4xl font-semibold mb-2">Register</h1>
+      </div>
+
       <label for="name">Name</label>
       <input type="text" id="name" placeholder="Ola" required />
 
@@ -25,8 +29,16 @@
         autocomplete="new-password"
       />
       <label for="password">Password</label>
-      <input type="password" id="password" required />
-      <button type="submit" onsubmit="register(e)">Register</button>
+      <input type="password" id="password" required minlength="8" />
+      <button
+        type="submit"
+        class="m-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded"
+        onsubmit="register(e)"
+        pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+        title="Please enter a valid noroff.no or stud.noroff.no address"
+      >
+        Register
+      </button>
     </form>
   </body>
 </html>

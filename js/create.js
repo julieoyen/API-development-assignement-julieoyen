@@ -10,13 +10,15 @@ document.querySelector('#add-ingredient').addEventListener('click', () => {
 
   const input = document.createElement('input');
   input.type = 'text';
-  input.className = 'ingredient';
+  input.className =
+    'ingredient w-full my-2 bg-gray-100 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600';
   input.placeholder = `Ingredient ${inputCount}`;
   ingredientItem.appendChild(input);
 
   const deleteButton = document.createElement('button');
   deleteButton.type = 'button';
-  deleteButton.className = 'delete-ingredient';
+  deleteButton.className =
+    'delete-ingredient bg-red-500 hover:bg-red-600 text-white font-bold p-1 rounded';
   deleteButton.textContent = 'Remove';
   ingredientItem.appendChild(deleteButton);
 
@@ -36,13 +38,15 @@ document.querySelector('#add-image').addEventListener('click', () => {
 
   const input = document.createElement('input');
   input.type = 'url';
-  input.className = 'image-url';
+  input.className =
+    'image-url w-full mx-2 bg-gray-100 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600';
   input.placeholder = `Image URL ${inputCount}`;
   imageItem.appendChild(input);
 
   const deleteButton = document.createElement('button');
   deleteButton.type = 'button';
-  deleteButton.className = 'delete-image';
+  deleteButton.className =
+    'delete-image bg-red-500 hover:bg-red-600 text-white font-bold p-1 rounded';
   deleteButton.textContent = 'Remove';
   imageItem.appendChild(deleteButton);
 
@@ -104,7 +108,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 
     const data = await res.json();
     alert('Form submitted successfully!');
-    location.reload();
+    window.location.href = '/';
   } catch (error) {
     console.error('Network or unexpected error:', error);
     alert('An unexpected error occurred. Please try again later.');

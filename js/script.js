@@ -2,12 +2,19 @@ const API_URL = 'https://api-development-assignement-julieoyen.onrender.com/';
 
 async function fetchRecipes() {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
     if (!response.ok) {
       throw new Error(`An error occurred: ${response.statusText}`);
     }
 
     const recipes = await response.json();
+
     const allRecipesDiv = document.getElementById('all-recipes');
     allRecipesDiv.innerHTML = '';
 
@@ -53,6 +60,7 @@ async function fetchRecipes() {
     allRecipesDiv.innerHTML = `<p style="color: red;">Failed to fetch recipes. Please try again later.</p>`;
   }
 }
+
 fetchRecipes();
 
 document.querySelector('#create-btn').addEventListener('click', () => {
